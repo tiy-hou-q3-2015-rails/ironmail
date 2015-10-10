@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'inbox#dashboard'
+
+  get 'inbox/:id' => 'inbox#show', as: :message
+
+  get "/api/inbox" => 'api/inbox#index'
+  post "/api/inbox/:id/read" => 'api/inbox#read', as: :read_message
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
